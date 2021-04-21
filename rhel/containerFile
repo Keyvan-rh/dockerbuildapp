@@ -18,10 +18,11 @@ ENV HELMVERSION="3.4.0"
 #COPY scripts/startup.sh /usr/local/bin/
 #COPY scripts/simpleEcho.sh /usr/local/bin/
 
-RUN dnf -y install httpd jq wget
+RUN dnf -y install httpd jq wget && \
+    mkdir -m 775 -p /var/www/html/{install,ignition,artifacts}
 COPY ./index.html /var/www/html
 
 USER 1002
-EXPOSE 8080/tcp 8443/tcp
+#EXPOSE 8080/tcp 8443/tcp
 
 
