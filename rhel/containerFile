@@ -21,6 +21,7 @@ ENV HELMVERSION="3.4.0"
 RUN dnf -y install httpd jq wget
 COPY ./index.html /var/www/html/.
 
+USER 1001
 EXPOSE 8080/tcp 8443/udp
 
 
